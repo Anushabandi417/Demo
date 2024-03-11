@@ -1,13 +1,13 @@
-def move_rings(num_rings, pillar1, to_pillar, aux_pillar):
-    if num_rings == 1:
+def move_disks(num_disks, pillar1, pillar2,pillar3):
+    if num_disks == 1:
         c[0]+=1
-        print(f"Move ring 1 from pillar {pillar1} to pillar {to_pillar}")
+        print(f"Move ring 1 from pillar {pillar1} to pillar {pillar2}")
         return
-    move_rings(num_rings - 1, pillar1, aux_pillar, to_pillar)
+    move_disks(num_disks - 1, pillar1, pillar3, pillar2)
     c[0]+=1
-    print(f"Move ring {num_rings} from pillar {pillar1} to pillar {to_pillar}")
-    move_rings(num_rings - 1, aux_pillar, to_pillar, pillar1)
-num_rings = 7
+    print(f"Move ring {num_disks} from pillar {pillar1} to pillar {pillar2}")
+    move_disks(num_disks - 1, pillar3, pillar2, pillar1)
+num_disks = 7
 c=[0]
-move_rings(num_rings, "1", "3", "2")
+move_disks(num_disks, "1", "2", "3")
 print(c[0])
